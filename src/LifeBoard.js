@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-function LifeBoard(){
-  return( 
-    <p> bing </p>
-  )
+class LifeBoard extends Component{
+  render(){
+    return( 
+      <p> bing </p>
+    )
+  }
 }
 
 export default LifeBoard;
