@@ -2,9 +2,9 @@
   "name": "js-life",
   "version": "1.0.0",
   "description": "life implementation for learning js",
-  "main": "main.js",
+  "main": "public/index.html",
   "scripts": {
-    "start": "babel-node main.js",
+    "start": "react-scripts start",
     "test": "mocha --require babel-register"
   },
   "author": "danielittlewood",
@@ -13,5 +13,16 @@
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "mocha": "^6.1.4"
-  }
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "^2.1.8"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
