@@ -70,3 +70,5 @@ class Board{
       return 1 }
   }
 }
+
+export default Board;

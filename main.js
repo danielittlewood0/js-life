@@ -1,3 +1,4 @@
+import Board from './board.js';
 var board = new Board(8,8);
 board.board = [
   [0,1,0,0,0,0,0,0],
