@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import Board from './Board.js';
+import LifeBoardSquare from './LifeBoardSquare.js';
 
 class LifeBoard extends Component{
   constructor(props){
@@ -14,20 +14,23 @@ class LifeBoard extends Component{
   }
 
   render(){
-    var board = this.state.board
-
-    for (row in board){
-      row = []
-      for (status in row){
-        row.push(
-          <LifeBoardSquare status={status}/>
-        )
-      }
-    }
-    return( 
-      <p> {this.state.board.board} </p>
+    return(
+      <div className="board">
+        {this.state.board.map(renderRow)}
+      </div>
     )
   }
+}
+
+
+function renderRow(row,i){
+  return(<div className="row" key={i}> 
+    {row.map(renderSquare)}
+  </div>)
+}
+
+function renderSquare(status,j){
+  return(<LifeBoardSquare statusCode={status} key={j}/>)
 }
 
 export default LifeBoard;
