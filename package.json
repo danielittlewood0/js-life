@@ -1,0 +1,11 @@
+{
+  "name": "js-life",
+  "version": "1.0.0",
+  "description": "life implementation for learning js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "danielittlewood",
+  "license": "ISC"
+}
