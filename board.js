@@ -63,11 +63,8 @@ class Board{
   advanceSquare(i,j){
     var alives = this.aliveNbrs(i,j);
     if (alives < 2 || alives > 3){ return 0 }
-    else if (alives == 2 && (this.board[i,j] == 0)){ return 0 }
-    else { 
-      var msg = i + " " + j
-      console.log(msg);
-      return 1 }
+    else if (alives == 2 && (this.board[i][j] == 0)){ return 0 }
+    else { return 1 }
   }
 }
 
