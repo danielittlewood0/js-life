@@ -1,0 +1,20 @@
+.board{
+  background-color:red;
+}
+
+.boardRow{
+}
+
+.aliveSquare{
+  display:inline-block;
+  height:20px;
+  width:20px;
+  background-color:white;
+}
+
+.deadSquare{
+  display:inline-block;
+  height:20px;
+  width:20px;
+  background-color:black;
+}

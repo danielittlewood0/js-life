@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
+import './LifeBoard.css'
 
 class LifeBoardSquare extends Component{
   constructor(props){
@@ -10,16 +10,14 @@ class LifeBoardSquare extends Component{
   }
 
   status(){
-    if (this.state.statusCode == 0){ return "dead" }
-    else if (this.state.statusCode == 1){ return "alive" }
+    if (this.state.statusCode == 0){ return "deadSquare" }
+    else if (this.state.statusCode == 1){ return "aliveSquare" }
     else { return null }
   }
 
   render(){
-    var board = this.state.board
-
     return( 
-      <div className="lifeSquare"> 1 </div>
+      <div className={this.status()}> </div>
     )
   }
 }
