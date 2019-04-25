@@ -41,7 +41,7 @@ class LifeBoard extends Component{
 
 
 function renderRow(row,i){
-  return(<div className="row" key={i}> 
+  return(<div className="boardRow" key={i}> 
     {row.map(renderSquare)}
   </div>)
 }

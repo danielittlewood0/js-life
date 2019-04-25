@@ -7,6 +7,7 @@ class LifeBoardSquare extends Component{
     this.state = {
       statusCode: props.statusCode
     }
+    this.toggle = this.toggle.bind(this);
   }
 
   status(){
@@ -15,9 +16,15 @@ class LifeBoardSquare extends Component{
     else { return null }
   }
 
+  toggle(){
+    let newCode = 1-this.state.statusCode
+    console.log(newCode)
+    this.setState({statusCode: newCode});
+  }
+
   render(){
     return( 
-      <div className={this.status()}> </div>
+      <div className={this.status()} onClick={this.toggle}> </div>
     )
   }
 }
