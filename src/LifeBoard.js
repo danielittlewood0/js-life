@@ -32,7 +32,7 @@ class LifeBoard extends Component{
   render(){
     console.log(this.style())
     return(
-      <div className="board" style={this.style()}>
+      <div id="life-board" style={this.style()}>
         {this.state.boardState.board.map(renderRow)}
       </div>
     )
