@@ -8,7 +8,8 @@ class LifeBoard extends Component{
     super();
     var board = new Board(props.width,props.height)
     this.state = {
-      boardState: board
+      boardState: board,
+      playInterval: null
     }
     this.advance = this.advance.bind(this);
     this.startPlaying = this.startPlaying.bind(this);
@@ -47,11 +48,13 @@ class LifeBoard extends Component{
   }
 
   startPlaying(){
-    setInterval(this.advance,1);
+    this.setState( {
+      playInterval: setInterval(this.advance,1000)
+    })
   }
 
   stopPlaying(){
-    clearInterval();
+    clearInterval(this.state.playInterval);
   }
 
   render(){
