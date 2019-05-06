@@ -11,6 +11,8 @@ class LifeBoard extends Component{
       boardState: board
     }
     this.advance = this.advance.bind(this);
+    this.startPlaying = this.startPlaying.bind(this);
+    this.stopPlaying = this.stopPlaying.bind(this);
   }
 
   style(){
@@ -44,6 +46,14 @@ class LifeBoard extends Component{
     return [...Array(this.state.boardState.width).keys()].map(f)
   }
 
+  startPlaying(){
+    setInterval(this.advance,1);
+  }
+
+  stopPlaying(){
+    clearInterval();
+  }
+
   render(){
     return(
       <div id="life-board">
@@ -57,7 +67,8 @@ class LifeBoard extends Component{
           }</div>)
         })
       }
-      <button onClick={this.advance}> Click me! </button>
+      <button onClick={this.startPlaying}> Start! </button>
+      <button onClick={this.stopPlaying}> Stop! </button>
       </div>
     )
   }
