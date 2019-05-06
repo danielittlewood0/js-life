@@ -10,44 +10,58 @@ class LifeBoard extends Component{
     this.state = {
       boardState: board
     }
+    this.advance = this.advance.bind(this);
   }
 
   style(){
-//  var width = 80.0/(this.state.boardState.width);
-//  var height = 80.0/(this.state.boardState.height);
     return {
       width: `${this.state.boardState.width*20}px`,
       height: `${this.state.boardState.height*20}px`,
-//    width: `${width}%`,
-//    height: `${height}%`
     }
   }
 
   advance(){
-    this.setState( prevState => {
-      boardState: prevState.boardState.advance()
+    this.setState( {
+      boardState: this.state.boardState.advance()
     })
   }
 
+  toggleSquare(i,j){
+    this.setState( prevState => {
+      var newState = prevState.boardState
+      console.log(newState)
+      console.log(newState.board)
+      newState.board[i][j] = 1 - prevState.boardState.board[i][j]
+      return {boardState: newState}
+    })
+  }
+
+  mapRows(f){
+    return [...Array(this.state.boardState.height).keys()].map(f)
+  }
+
+  mapCols(f){
+    return [...Array(this.state.boardState.width).keys()].map(f)
+  }
+
   render(){
-    console.log(this.style())
     return(
-      <div id="life-board" style={this.style()}>
-        {this.state.boardState.board.map(renderRow)}
+      <div id="life-board">
+      {
+        this.mapRows( (_,i) => {
+          return(<div className="boardRow" key={i}>{
+            this.mapCols( (_,j) => {
+              var state = this.state.boardState.board[i][j];
+              console.log(state)
+              return(<LifeBoardSquare key={j} statusCode={state} toggle={() => this.toggleSquare(i,j)}/>)
+            })
+          }</div>)
+        })
+      }
+      <button onClick={this.advance}> Click me! </button>
       </div>
     )
   }
-}
-
-
-function renderRow(row,i){
-  return(<div className="boardRow" key={i}> 
-    {row.map(renderSquare)}
-  </div>)
-}
-
-function renderSquare(status,j){
-  return(<LifeBoardSquare statusCode={status} key={j}/>)
 }
 
 export default LifeBoard;
