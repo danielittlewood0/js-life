@@ -4,27 +4,18 @@ import './LifeBoard.css'
 class LifeBoardSquare extends Component{
   constructor(props){
     super();
-    this.state = {
-      statusCode: props.statusCode
-    }
-    this.toggle = this.toggle.bind(this);
   }
 
   status(){
-    if (this.state.statusCode == 0){ return "deadSquare" }
-    else if (this.state.statusCode == 1){ return "aliveSquare" }
+    if (this.props.statusCode == 0){ return "deadSquare" }
+    else if (this.props.statusCode == 1){ return "aliveSquare" }
     else { return null }
   }
 
-  toggle(){
-    let newCode = 1-this.state.statusCode
-    console.log(newCode)
-    this.setState({statusCode: newCode});
-  }
 
   render(){
     return( 
-      <div className={this.status()} onClick={this.toggle}> </div>
+      <div className={this.status()} onClick={this.props.toggle}> </div>
     )
   }
 }
