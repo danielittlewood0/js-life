@@ -49,7 +49,7 @@ class LifeBoard extends Component{
 
   startPlaying(){
     this.setState( {
-      playInterval: setInterval(this.advance,1000)
+      playInterval: setInterval(this.advance,300)
     })
   }
 
