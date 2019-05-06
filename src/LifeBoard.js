@@ -51,9 +51,7 @@ class LifeBoard extends Component{
         this.mapRows( (_,i) => {
           return(<div className="boardRow" key={i}>{
             this.mapCols( (_,j) => {
-              var state = this.state.boardState.board[i][j];
-              console.log(state)
-              return(<LifeBoardSquare key={j} statusCode={state} toggle={() => this.toggleSquare(i,j)}/>)
+              return(<LifeBoardSquare key={j} toggle={() => this.toggleSquare(i,j)}/>)
             })
           }</div>)
         })
